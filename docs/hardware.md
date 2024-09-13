@@ -1,22 +1,16 @@
 # LED Blinker: Hardware Requirements
 
-Users will need two hardware elements to follow the LED Blinker tutorial: an embedded ARM Linux computer, and an LED capable of withstanding the operating voltage of the computer.
+Users will need at least one hardware element to follow the LED Blinker tutorial: an embedded Arduino-based microcontroller with an on-board LED. If there is no on-board LED, you will need an external LED capable of withstanding the operating voltage.
 
-## Embedded Computer Requirements
+## Arduino Microcontroller Requirements
 
-The embedded computer must be an ARM Linux machine with little-endian architecture and available GPIO pins. Some platforms that should work include: the RaspberryPI, Odroids, the BeagleBone, and similar platforms. The user is expected to set up Linux running Kernel 4.8+ or newer and enable the GPIO pins in the platform configuration.
-
-> Write down the ARM architecture bus-width: 32-bit, or 64-bit.
-
-## LED Requirements
-
-The user may use any LED that can withstand the GPIO voltage of the chosen platform (typically 3.3 or 5 volts). This usually means choosing an LED with sufficient diode drop or inlining a resistor.
+The microcontroller must have sufficient FLASH memory and SRAM to run F´. The current requirements are at least 140 KB of FLASH memory and 30 KB of RAM.
 
 ## Wiring Diagram
 
-For this tutorial, GPIO pin 13 will be used. For platforms that do not have GPIO pin 13 readily available another pin should be chosen, noted, and used in-place of GPIO 13.
+For this tutorial, the on-board LED pin will be used (LED_BUILTIN). For most Arduino microcontrollers, this is GPIO pin 13. For platforms that do not have an on-board LED pin readily available, another pin should be chosen, noted, and used in-place of LED_BUILTIN (13).
 
-```
-GPIO 13 ----> LED + (cathode) 
-GND     <---- LED - (anode)     
-```
+
+[:octicons-arrow-right-24: Back to LED Blinker](index.md)
+
+[:octicons-arrow-right-24: Back to Arduino LED Blinker](../arduino-led-blinker/index.md)
