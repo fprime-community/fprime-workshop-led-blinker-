@@ -11,6 +11,6 @@ The microcontroller must have sufficient FLASH memory and SRAM to run F´. The c
 For this tutorial, the on-board LED pin will be used (LED_BUILTIN). For most Arduino microcontrollers, this is GPIO pin 13. For platforms that do not have an on-board LED pin readily available, another pin should be chosen, noted, and used in-place of LED_BUILTIN (13).
 
 
-[:octicons-arrow-right-24: Back to LED Blinker](index.md)
+[:octicons-arrow-right-24: Back to LED Blinker](https://github.jpl.nasa.gov/pages/ashleysa/fprime-website-mkdocs-dev/latest/tutorials-led-blinker/docs/led-blinker/)
 
-[:octicons-arrow-right-24: Back to Arduino LED Blinker](../arduino-led-blinker/index.md)
+[:octicons-arrow-right-24: Back to Arduino LED Blinker](https://github.jpl.nasa.gov/pages/ashleysa/fprime-website-mkdocs-dev/latest/tutorials-arduino-led-blinker/docs/arduino-led-blinker/)
