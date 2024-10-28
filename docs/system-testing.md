@@ -8,7 +8,7 @@ Before starting this guide, users should have the LedBlinking deployment running
 
 > Note: If running the LedBlinker deployment locally instead of on the intended hardware, make sure to rebuild F´ with stubbed GPIO drivers so the LedBlinker deployment doesn't attempt to write to physical GPIO ports. Regenerate the native deployment with `fprime-util generate -DFPRIME_USE_STUBBED_DRIVERS=ON`. MacOS defaults to stubbed drivers and does not require explicitly setting this option.
 
-## Intro to Fprime System Testing
+## Intro to F´ System Testing
 
 Installing the fprime-gds also installs a pytest fixture called `fprime_test_api`. When used, this allows the pytest testing library to automatically connect to the currently running fprime-gds.
 
@@ -38,7 +38,7 @@ Next, after verifying the F` GDS is connected to your deployment, run the new sy
 $ pytest ../Components/Led/test/int/led_integration_tests.py
 ```
 
-## Fprime System Testing Assertions
+## F´ System Testing Assertions
 
 The typical pattern for F´ system tests is to send a command, then wait until some condition is met, such as receiving an event. If the system test don't receive the expected results, they will time out and fail.
 
