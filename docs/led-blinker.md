@@ -1,17 +1,19 @@
-# LED Blinker: An F´ Tutorial on Physical Hardware
-Reference: [LED Blinker Tutorial Github Repository](https://github.com/fprime-community/fprime-workshop-led-blinker)
+# F´ Tutorial for Physical Hardware
 
 This is designed to be an extended introductory F´ tutorial taking the user through the basics of creating components,
 using events, telemetry, commands, and parameters, and integrating topologies with the goal of running F´ on embedded
 hardware. Users will be guided through the process of software development and testing on embedded Linux running on an
 ARM processor (e.g. RaspberryPI, Odroid, etc).
 
+> [!TIP]
+> The source for this tutorial is located here: [https://github.com/fprime-community/fprime-workshop-led-blinker](https://github.com/fprime-community/fprime-workshop-led-blinker). If you are stuck at some point during the tutorial, you may refer to that reference as the "solution".
+
 ## Prerequisites
 
 In order to run through this tutorial, you must first do the following:
 
 1. Meet the [F´ System Requirements](https://fprime.jpl.nasa.gov/latest/getting-started/installing-fprime#system-requirements)
-2. Install an IDE or text editor supporting copy-paste. [VSCode](https://code.visualstudio.com/) has [plugins](https://marketplace.visualstudio.com/items?itemName=unlv-team5.fpptools) to work with FPP.
+2. Install an IDE or text editor supporting copy-paste. [VSCode](https://code.visualstudio.com/) has [plugins](https://marketplace.visualstudio.com/items?itemName=jet-propulsion-laboratory.fpp) to work with FPP.
 3. Attempt the [Hello World Tutorial](https://fprime.jpl.nasa.gov/latest/tutorials-hello-world/docs/hello-world/)
 
 To run on hardware with cross-compiling, you must also:
@@ -19,8 +21,11 @@ To run on hardware with cross-compiling, you must also:
 1. Acquire and set up the appropriate [hardware](https://fprime.jpl.nasa.gov/latest/tutorials-led-blinker/docs/hardware/) for this tutorial
 2. Set up a [cross-compiling environment](https://fprime.jpl.nasa.gov/latest/documentation/tutorials/cross-compilation#cross-compilation-setup) for their ARM processor
 
-!!! note
-    Attendees to an in-person F´ workshop will have access to 64-bit ARM hardware and should set up the 64-bit cross compiling environment.
+> [!IMPORTANT]
+> If you do not have the hardware, you can still follow the LED Blinker tutorial! You should just skip the Hardware sections.
+
+> [!NOTE]
+> Attendees to an in-person F´ workshop will have access to 64-bit ARM hardware and should set up the 64-bit cross compiling environment.
 
 ## Tutorial Steps
 
@@ -41,8 +46,8 @@ This tutorial is composed of the following steps:
 
 ## 1. LED Blinker: Project Setup
 
-!!! note
-    if you have followed the [HelloWorld tutorial](https://fprime.jpl.nasa.gov/latest/tutorials-hello-world/docs/hello-world/) previously, this should feel very familiar...
+> [!NOTE]
+> If you have followed the [HelloWorld tutorial](https://fprime.jpl.nasa.gov/latest/tutorials-hello-world/docs/hello-world/) previously, this should feel very familiar...
 
 An F´ Project ties to a specific version of tools to work with F´. In order to create
 this project and install the correct version of tools, you should perform a bootstrap of F´.
@@ -61,8 +66,8 @@ cd led-blinker
 . fprime-venv/bin/activate
 fprime-util generate
 ```
-!!! note
-    Always remember to activate your project's virtual environment whenever you work with it.
+> [!NOTE]
+> Always remember to activate your project's virtual environment whenever you work with it.
 
 ---
 
@@ -89,8 +94,8 @@ Ideally, the software engineer would be handed these requirements, however; in-p
 |-----------------|-----------------------------------------------------------------|-----------------|--------------|
 | LED-BLINKER-001 | The software shall start LED blinking in response to a command. | ELECTRONICS-001 | Unit Test    |
 
-!!! warning
-    Take a moment to identify some other requirements you might derive from the above electronics requirements. Do this before moving on to the next section.
+> [!WARNING]
+> Take a moment to identify some other requirements you might derive from the above electronics requirements. Do this before moving on to the next section.
 
 ### LED Blinker
 
@@ -105,8 +110,8 @@ Here we list a number of requirements for our LED software to implement.
 | LED-BLINKER-005 | The software shall store the blink interval as a parameter.     | ELECTRONICS-002 | Unit Test    |
 | LED-BLINKER-006 | The software shall blink the LED using GPIO pin 13              | Electrical ICD  | Unit Test    |
 
-!!! note
-    Notice how the software also includes a requirement that derived from the Electrical Interface Control Document. This captures the details of the software/hardware interface and is captured here as a requirement.
+> [!NOTE]
+> Notice how the software also includes a requirement that derived from the Electrical Interface Control Document. This captures the details of the software/hardware interface and is captured here as a requirement.
 
 ---
 
@@ -131,8 +136,8 @@ In this exercise, the `BLINKING_ON_OFF` command shall toggle the blinking state 
 1. `run`: invoked at a set rate from the rate group, used to control the LED blinking
 2. `gpioSet`: invoked by the `Led` component to control the GPIO driver
 
-!!! note
-    Standard component ports (circled in green) are not listed here.
+> [!NOTE]
+> Standard component ports (circled in green) are not listed here.
 
 **Commands:**
 1. `BLINKING_ON_OFF`: turn the LED blinking on/off
@@ -231,8 +236,8 @@ Inside your `led-blinker/Components/Led` directory, open the `Led.fpp` file. Aft
             format "Set blinking state to {}."
 ```
 
-!!! note
-    `state` is a keyword in FPP. In order to use it as a variable name, you need to escape it by prepending `$`.
+> [!NOTE]
+> `state` is a keyword in FPP. In order to use it as a variable name, you need to escape it by prepending `$`.
 
 #### Do it yourself
 
@@ -272,8 +277,8 @@ Verify your component is building correctly by running the following command in 
 fprime-util build
 ```
 
-!!! note
-    Fix any errors that occur before proceeding with the rest of the tutorial.
+> [!NOTE]
+> Fix any errors that occur before proceeding with the rest of the tutorial.
 
 #### Component State
 
@@ -323,8 +328,8 @@ Run the following command in the terminal to verify your component is building c
 fprime-util build
 ```
 
-!!! note
-    Fix any errors that occur before proceeding with the rest of the tutorial.
+> [!NOTE]
+> Fix any errors that occur before proceeding with the rest of the tutorial.
 
 #### Events
 
@@ -347,8 +352,8 @@ Run the following to verify your component is building correctly.
 fprime-util build
 ```
 
-!!! note
-    Resolve any `fprime-util build` errors before continuing
+> [!NOTE]
+> Resolve any `fprime-util build` errors before continuing
 
 ### LED Blinker Step 3 Conclusion
 
@@ -370,8 +375,8 @@ void Led ::BLINKING_ON_OFF_cmdHandler(FwOpcodeType opCode, U32 cmdSeq, Fw::On on
 
 Before finishing the implementation, let's take a break and try running the above command through the ground system. This will require integrating the component into the system topology, which we will get into in the next section.
 
-!!! note
-    The last TODO in the `BLINKING_ON_OFF` command handler will be addressed in a future section. 
+> [!NOTE]
+> The last TODO in the `BLINKING_ON_OFF` command handler will be addressed in a future section. 
 
 ---
 
@@ -380,8 +385,8 @@ Before finishing the implementation, let's take a break and try running the abov
 
 In this section, users will create a deployment and perform the initial integration of the LED component into that deployment. This deployment will automatically include the basic command and data handling setup needed to interact with the component. Wiring the `Led` component to the GPIO driver component will be covered in a later section after the component implementation has finished.
 
-!!! note
-    Users must have created the [initial Led component implementation](#4-led-blinker-initial-component-integration) in order to run through this section. Users may continue to define commands, events, telemetry, and ports after this initial integration.
+> [!NOTE]
+> Users must have created the [initial Led component implementation](#4-led-blinker-initial-component-integration) in order to run through this section. Users may continue to define commands, events, telemetry, and ports after this initial integration.
 
 ### Creating the `LedBlinker` Deployment
 
@@ -406,8 +411,8 @@ Choose from 1, 2, 3 [1]: 2
 [INFO] Found CMake file at 'led-blinker/project.cmake'
 Add component LedBlinker to led-blinker/project.cmake at end of file? (yes/no) [yes]: 
 ```
-!!! note
-    Use the default response for any other questions asked.
+> [!NOTE]
+> Use the default response for any other questions asked.
 
 In order to check that the deployment was created successfully, the user can build the deployment. This will build the code for the current host system, not the remote embedded hardware allowing local testing during development. 
 
@@ -417,8 +422,8 @@ cd LedBlinker
 fprime-util build
 ```
 
-!!! note
-    This will reuse the build cache created during the project creation. CMake warnings may appear to indicate that the build cache is refreshing. The build should start shortly thereafter.
+> [!NOTE]
+> This will reuse the build cache created during the project creation. CMake warnings may appear to indicate that the build cache is refreshing. The build should start shortly thereafter.
 
 ### Adding `Led` Component To The Deployment
 
@@ -445,8 +450,8 @@ Next, the topology needs to use the above definition. This is done by adding the
     instance led
 ```
 
-!!! note
-    No port connections need to be added because thus far the component only defines standard ports and those are connected automatically.
+> [!NOTE]
+> No port connections need to be added because thus far the component only defines standard ports and those are connected automatically.
 
 Build your deployment
 
@@ -460,8 +465,8 @@ fprime-util build
 
 The topology may now be run. This can be done with the `fprime-gds` command. Since we are currently building for the host platform, that command will run the ground data system (GDS) and the deployment executable automatically in-tandem.
 
-!!! note
-    Make sure to build the deployment first with `fprime-util build`
+> [!NOTE]
+> Make sure to build the deployment first with `fprime-util build`
 
 ```shell
 fprime-gds --ip-client
@@ -497,8 +502,8 @@ This tutorial will return to the component implementation before finishing the i
 
 In this section, we will complete the component design and implementation by adding telemetry, parameters, and ports; and implementing the behavior of the `run` port, which is called by the rate-group.
 
-!!! note
-    Refer back to the [component design](#component-design) for explanations of what each of these items is intended to do.
+> [!NOTE]
+> Refer back to the [component design](#component-design) for explanations of what each of these items is intended to do.
 
 ### Continued Component Design
 
@@ -548,8 +553,8 @@ In your `led-blinker/Components/Led` directory, open the `Led.fpp` file. After t
         output port gpioSet: Drv.GpioWrite
 ```
 
-!!! note
-    Input and output ports can be given any name that you choose. In this example, we choose `run` and `gpioSet` since these names capture the behavioral intent. The types of `Svc.Sched` and `Drv.GpioWrite` are significant as these types must match the remote component.
+> [!NOTE]
+> Input and output ports can be given any name that you choose. In this example, we choose `run` and `gpioSet` since these names capture the behavioral intent. The types of `Svc.Sched` and `Drv.GpioWrite` are significant as these types must match the remote component.
 
 ### Continued Component Implementation
 
@@ -589,8 +594,8 @@ void Led ::run_handler(FwIndexType portNum, U32 context) {
 }
 ```
 
-!!! note
-    Copying from the template file and pasting into your implementation file is a pattern in F Prime that is often used when adding new input ports or commands.
+> [!NOTE]
+> Copying from the template file and pasting into your implementation file is a pattern in F Prime that is often used when adding new input ports or commands.
 
 The `run` port will be invoked repeatedly on each cycle of the rate group. Each invocation will call into the `run_handler` function such that the component may perform behavior on each cycle.
 
@@ -598,8 +603,8 @@ Here we want to turn the LED on or OFF based on a cycle count to implement the "
 
 Copy the run_handler implementation below into your run_handler. Try filling in the TODOs based on what you learned and defined in previous sections.
 
-!!! note
-    Don't forget to read the code and comments to understand more about how to use F´.
+> [!NOTE]
+> Don't forget to read the code and comments to understand more about how to use F´.
 
 ```cpp
 void Led ::run_handler(FwIndexType portNum, U32 context) {
@@ -649,8 +654,8 @@ In the terminal, run the following to verify your component is building correctl
 fprime-util build
 ```
 
-!!! note
-    Fix any errors that occur before proceeding with the rest of the tutorial.
+> [!NOTE]
+> Fix any errors that occur before proceeding with the rest of the tutorial.
 
 #### Command Implementation Continued
 
@@ -674,8 +679,8 @@ In the terminal, run the following to verify your component is building correctl
 fprime-util build
 ```
 
-!!! note
-    Fix any errors that occur before proceeding with the rest of the tutorial.
+> [!NOTE]
+> Fix any errors that occur before proceeding with the rest of the tutorial.
 
 #### Parameter Implementation
 
@@ -722,8 +727,8 @@ In the terminal, run the following to verify your component is building correctl
 # In led-blinker/Components/Led
 fprime-util build
 ```
-!!! note
-    Resolve any errors before continuing
+> [!NOTE]
+> Resolve any errors before continuing
 
 ### Do it Yourself
 
@@ -735,10 +740,13 @@ Below is a table with tasks you must complete. These tasks require you to go bac
 | Inside the `run_handler` port handler, report the number of LED transitions (this->m_transitions) on channel LedTransitions. | <details><summary>Answer</summary>`this->tlmWrite_LedTransitions(this->m_transitions);`</details> |
 | Inside the `run_handler` port handler, emit an event LedState to report the LED state (this->m_state). There are two places to add this event. | <details><summary>Answer</summary>`this->log_ACTIVITY_LO_LedState(this->m_state);`</details> |
 
-!!! note
-    Emitting an event follows this pattern: `this->log_<severity>_<eventName>(<argument_if_any>);`  
-!!! note
-    Emitting a telemetry channel follows this pattern: `this->tlmWrite_<telemetryChannel>(<telemetryValue>);`
+> [!TIP]
+> Emitting an event follows this pattern: `this->log_<severity>_<eventName>(<argument_if_any>);`  
+> [!TIP]
+> Emitting a telemetry channel follows this pattern: `this->tlmWrite_<telemetryChannel>(<telemetryValue>);`
+> [!TIP]
+> After running `fprime-util build`, your IDE should be able to autocomplete these functions.
+
 
 ### LED Blinker Step 5 Conclusion
 
@@ -770,8 +778,8 @@ Next, generate a unit test build cache by running the following terminal command
 #In led-blinker/Components/Led
 fprime-util generate --ut
 ```
-!!! note
-    Unit tests run with special build settings and as such need their own build cache generated.
+> [!NOTE]
+> Unit tests run with special build settings and as such need their own build cache generated.
 
 
 Next we will generate unit test template files. This is similar to the component implementations we have run, but will set up the complete unit test harness. 
@@ -809,8 +817,8 @@ Finally, test the skeleton unit tests with the following command:
 #In led-blinker/Components/Led
 fprime-util check
 ```
-!!! note
-    `check` will build and run unit tests. To simply build them, run `fprime-util build --ut`.
+> [!NOTE]
+> `check` will build and run unit tests. To simply build them, run `fprime-util build --ut`.
 
 ### Add a New Test Case
 
@@ -839,8 +847,8 @@ TEST(Nominal, TestBlinking) {
 
 Use `fprime-util check` to make sure the new check builds and passes. 
 
-!!! note
-    Ensure all errors are resolved before continuing.
+> [!NOTE]
+> Ensure all errors are resolved before continuing.
 
 
 ### Write a Test Case
@@ -944,8 +952,8 @@ void LedTester ::testBlinkInterval() {
     // TODO: Add logic to test adjusted blink interval
 }
 ```
-!!! note
-    Don't forget to add `testBlinkInterval()` to `LedTester.hpp` and `LedTestMain.cpp` as well. Run `fprime-util check` and resolve any issues before continuing.
+> [!NOTE]
+> Don't forget to add `testBlinkInterval()` to `LedTester.hpp` and `LedTestMain.cpp` as well. Run `fprime-util check` and resolve any issues before continuing.
 
 ### Checking Coverage
 
@@ -982,8 +990,8 @@ Add to the instance list of `led-blinker/LedBlinker/Top/topology.fpp`:
     instance gpioDriver
 ```
 
-!!! note
-    In `led-blinker/LedBlinker` build the deployment and resolve any errors before continuing.
+> [!NOTE]
+> In `led-blinker/LedBlinker` build the deployment and resolve any errors before continuing.
 
 ### Wiring The `led` Component Instance to the `gpioComponent` Component Instance and Rate Group
 
@@ -1002,8 +1010,8 @@ To do this, add the following lines to `led-blinker/LedBlinker/Top/topology.fpp`
     }
 ```
 
-!!! note
-    `rateGroup1` is preconfigured to call all `RateGroupMemberOut` at a rate of 1 Hz. We use index `RateGroupMemberOut[3]` because `RateGroupMemberOut[0]` through `RateGroupMemberOut[2]` were used previously in the `RateGroups` connection block.
+> [!NOTE]
+> `rateGroup1` is preconfigured to call all `RateGroupMemberOut` at a rate of 1 Hz. We use index `RateGroupMemberOut[3]` because `RateGroupMemberOut[0]` through `RateGroupMemberOut[2]` were used previously in the `RateGroups` connection block.
 
 ### Configuring The GPIO Driver
 
@@ -1027,8 +1035,8 @@ And since this code uses `Fw::Logger`, you will need to add the following line n
 
 This code tells the GPIO driver to open pin 13 as an output pin. If this fails, an error is printed to the console, but the system continues to start.
 
-!!! warning
-    In `led-blinker/LedBlinker` build the deployment and resolve any errors before continuing.
+> [!WARNING]
+> In `led-blinker/LedBlinker` build the deployment and resolve any errors before continuing.
 
 ### LED Blinker Step 7 Conclusion
 
@@ -1044,8 +1052,8 @@ In order to run on hardware, the deployment needs to be built for the given hard
 
 In the prerequisites for this tutorial, the ARM Linux cross-compilers were installed. In this section, we will use these compilers to cross-compile for ARM Linux by utilizing integration files called "CMake Toolchain". Follow the steps in the [ARM cross compilation tutorial](https://fprime.jpl.nasa.gov/latest/documentation/tutorials/cross-compilation#cross-compilation-tutorial-compiling-for-arm) on how to compile for ARM.
 
-!!! note
-    During the step for running the `fprime-util generate` and `fprime-util build` commands, macOS users must run from within the Docker container in the directory `/project/LedBlinker`
+> [!NOTE]
+> During the step for running the `fprime-util generate` and `fprime-util build` commands, macOS users must run from within the Docker container in the directory `/project/LedBlinker`
 
 ### Running on Hardware
 
@@ -1068,15 +1076,15 @@ Fprime system tests use a python api to dispatch commands to a deployment using 
 
 Before starting this guide, users should have the LedBlinking deployment running on their hardware and connected to the fprime GDS running on a development machine. If hardware is not available, this guide can be followed by running the LedBlinking deployment locally on a development machine instead.
 
-!!! note
-    If running the LedBlinker deployment locally instead of on the intended hardware, make sure to rebuild fprime with stubbed GPIO drivers so the LedBlinker deployment doesn't attempt to write to physical GPIO ports. Regenerate the native deployment with `fprime-util generate -DFPRIME_USE_STUBBED_DRIVERS=ON`. MacOS defaults to stubbed drivers and does not require explicitly setting this option.
+> [!NOTE]
+> If running the LedBlinker deployment locally instead of on the intended hardware, make sure to rebuild fprime with stubbed GPIO drivers so the LedBlinker deployment doesn't attempt to write to physical GPIO ports. Regenerate the native deployment with `fprime-util generate -DFPRIME_USE_STUBBED_DRIVERS=ON`. MacOS defaults to stubbed drivers and does not require explicitly setting this option.
 
-### Intro to Fprime System Testing
+### Intro to F Prime System Testing
 
 Installing the fprime-gds also installs a pytest fixture called `fprime_test_api`. When used, this allows the pytest testing library to automatically connect to the currently running fprime-gds.
 
-!!! note
-    if running the fprime GDS on non-default ports, you can use the same command line arguments used with `fprime-cli` with `pytest` to point the system testing library to the correct GDS instance
+> [!NOTE]
+> If running the GDS on non-default ports, you can use the same command line arguments used with `fprime-cli` with `pytest` to point the system testing library to the correct GDS instance
 
 First, create a basic test case to verify the system testing library is correctly setup.
 
