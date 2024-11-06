@@ -1,4 +1,8 @@
-# F´ Tutorial for Physical Hardware
+---
+permalink: /
+---
+
+# LED Blinker Tutorial
 
 This is designed to be an extended introductory F´ tutorial taking the user through the basics of creating components,
 using events, telemetry, commands, and parameters, and integrating topologies with the goal of running F´ on embedded
