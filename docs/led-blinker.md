@@ -39,7 +39,7 @@ This tutorial is composed of the following steps:
 2. [Requirements Specification](#2-specifying-requirements)
 3. [Component Design and Initial Implementation](#3-led-blinker-component-design-and-initial-implementation)
 4. [Initial Component Integration](#4-led-blinker-initial-component-integration)
-5. [Continuing Component Implementation](#5-led-blinker-continuing-component-implementation)
+5. [Continuing Component Implementation](#5-led-blinker-component-design-and-implementation-continued)
 6. [Unit-Testing](#6-led-blinker-unit-testing)
 7. [Full System Integration](#7-led-blinker-full-system-integration)
 8. [Running on Hardware](#8-led-blinker-running-on-hardware)
