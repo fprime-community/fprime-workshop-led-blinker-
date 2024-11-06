@@ -1,5 +1,9 @@
 # LED Blinker: An F´ Tutorial on Physical Hardware
 
+This repository contains the source code and documentation for the F Prime MathComponent tutorial.
+
+To run through the tutorial, please visit the F´ website and look for the tutorial section: https://fprime.jpl.nasa.gov
+
 This is designed to be an extended introductory F´ tutorial taking the user through the basics of creating components,
 using events, telemetry, commands, and parameters, and integrating topologies with the goal of running F´ on embedded
 hardware. Users will be guided through the process of software development and testing on embedded Linux running on an
@@ -18,18 +22,10 @@ To run on hardware with cross-compiling, you must also:
 2. Set up a [cross-compiling environment](https://github.com/nasa/fprime/blob/devel/docs/Tutorials/CrossCompilationSetup/CrossCompilationSetupTutorial.md) for their ARM processor
 > Attendees to an in-person F´ workshop will have access to 64-bit ARM hardware and should set up the 64-bit cross compiling environment.
 
-## Tutorial Steps
+## Contributing
+If you would like to contribute to this tutorial, please open a pull request.
 
-This tutorial is composed of the following steps:
-
-1. [Project Setup](docs/project-setup.md)
-2. [Requirements Specification](docs/requirements.md)
-3. [Component Design and Initial Implementation](docs/component-implementation-1.md)
-4. [Initial Component Integration](docs/initial-integration.md)
-5. [Continuing Component Implementation](docs/component-implementation-2.md)
-6. [Unit-Testing](docs/unit-testing.md)
-7. [Full System Integration](docs/full-integration.md)
-8. [Running on Hardware](docs/running-on-hardware.md)
-9. [System Testing](docs/system-testing.md)
-
-### First Step: [Project Setup](./docs/project-setup.md)
+## Resources
+- [Discussions](https://github.com/nasa/fprime/discussions)
+- [Submit an Issue](https://github.com/nasa/fprime/issues)
+- [F´ Community](https://github.com/fprime-community)
