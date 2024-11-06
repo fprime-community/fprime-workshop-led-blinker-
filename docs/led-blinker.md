@@ -4,10 +4,7 @@ permalink: /
 
 # LED Blinker Tutorial
 
-This is designed to be an extended introductory F´ tutorial taking the user through the basics of creating components,
-using events, telemetry, commands, and parameters, and integrating topologies with the goal of running F´ on embedded
-hardware. Users will be guided through the process of software development and testing on embedded Linux running on an
-ARM processor (e.g. RaspberryPI, Odroid, etc).
+This is designed to be an extended introductory F´ tutorial taking the user through the basics of creating components, using events, telemetry, commands, and parameters, and integrating topologies with the goal of running F´ on embedded hardware. Users will be guided through the process of software development and testing on embedded Linux running on an ARM processor (e.g. RaspberryPI, Odroid, etc).
 
 > [!TIP]
 > The source for this tutorial is located here: [https://github.com/fprime-community/fprime-workshop-led-blinker](https://github.com/fprime-community/fprime-workshop-led-blinker). If you are stuck at some point during the tutorial, you may refer to that reference as the "solution".
@@ -20,13 +17,13 @@ In order to run through this tutorial, you must first do the following:
 2. Install an IDE or text editor supporting copy-paste. [VSCode](https://code.visualstudio.com/) has [plugins](https://marketplace.visualstudio.com/items?itemName=jet-propulsion-laboratory.fpp) to work with FPP.
 3. Attempt the [Hello World Tutorial](https://fprime.jpl.nasa.gov/latest/tutorials-hello-world/docs/hello-world/)
 
-To run on hardware with cross-compiling, you must also:
-
-1. Acquire and set up the appropriate [hardware](https://fprime.jpl.nasa.gov/latest/tutorials-led-blinker/docs/hardware/) for this tutorial
-2. Set up a [cross-compiling environment](https://fprime.jpl.nasa.gov/latest/documentation/tutorials/cross-compilation#cross-compilation-setup) for their ARM processor
-
 > [!IMPORTANT]
 > If you do not have the hardware, you can still follow the LED Blinker tutorial! You should just skip the Hardware sections.
+
+To run on hardware with cross-compiling, you must also:
+
+1. Acquire and set up the appropriate hardware as described in the [Appendix: Optional Hardware Requirement](#appendix-optional-hardware-requirements) section
+2. Set up a [cross-compiling environment](https://fprime.jpl.nasa.gov/latest/documentation/tutorials/cross-compilation#cross-compilation-setup) for their ARM processor
 
 > [!NOTE]
 > Attendees to an in-person F´ workshop will have access to 64-bit ARM hardware and should set up the 64-bit cross compiling environment.
@@ -1245,10 +1242,41 @@ To verify this, `fprime_test_api.assert_telemetry_count` can be used to wait for
     )
 ```
 
---- 
-
 ## 10. LED Blinker: Conclusion
 
 Congratulations! You have now completed the F´ on-hardware tutorial. You should now have a solid understanding of building an F´ project that runs on hardware!
 
 [Return to Tutorials](https://fprime.jpl.nasa.gov/latest/documentation/tutorials/){ .md-button .md-button--primary }
+
+--- 
+
+
+## Appendix: Optional Hardware Requirements
+
+You will need two hardware elements in order to run on hardware during the LedBlinker tutorial:
+1. an embedded ARM Linux computer (e.g. RaspberryPi or similar), 
+2. an LED capable of withstanding the operating voltage of the computer.
+
+> [!IMPORTANT]
+> If you do not have the hardware, you can still follow the LED Blinker tutorial! You should just skip the Hardware sections. You may also skip the rest of this page.
+
+### Embedded Computer Requirements
+
+The embedded computer must be an ARM Linux machine with little-endian architecture and available GPIO pins. Some platforms that should work include: the RaspberryPI, Odroids, the BeagleBone, and similar platforms. The user is expected to set up Linux running Kernel 4.8+ or newer and enable the GPIO pins in the platform configuration.
+
+> [!NOTE]
+> Write down the ARM architecture bus-width: 32-bit, or 64-bit. We will need it later.
+
+### LED Requirements
+
+The user may use any LED that can withstand the GPIO voltage of the chosen platform (typically 3.3 or 5 volts). This usually means choosing an LED with sufficient diode drop or inlining a resistor.
+
+### Wiring Diagram
+
+For this tutorial, GPIO pin 13 will be used. For platforms that do not have GPIO pin 13 readily available another pin should be chosen, noted, and used in-place of GPIO 13.
+
+```
+GPIO 13 ----> LED + (cathode) 
+GND     <---- LED - (anode)     
+```
+
