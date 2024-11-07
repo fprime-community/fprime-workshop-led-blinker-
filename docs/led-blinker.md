@@ -1073,7 +1073,7 @@ Congratulations you've now run on hardware. The final section of this tutorial i
 
 In this section, we will walk through the creation of system tests, also known as integration tests, for the LED component created in prior steps.
 
-Fprime system tests use a python api to dispatch commands to a deployment using the fprime GDS, verifying components behave as expected as part of deployment running on actual hardware.
+F Prime system tests use a python api to dispatch commands to a deployment using the fprime GDS, verifying components behave as expected as part of deployment running on actual hardware.
 
 Before starting this guide, users should have the LedBlinking deployment running on their hardware and connected to the fprime GDS running on a development machine. If hardware is not available, this guide can be followed by running the LedBlinking deployment locally on a development machine instead.
 
@@ -1111,7 +1111,7 @@ Next, after verifying the fprime GDS is connected to your deployment, run the ne
 $ pytest ../Components/Led/test/int/led_integration_tests.py
 ```
 
-### Fprime System Testing Assertions
+### F Prime System Testing Assertions
 
 The typical pattern for fprime system tests is to send a command, then wait until some condition is met, such as receiving an event. If the system test don't receive the expected results, they will time out and fail.
 
