@@ -13,9 +13,9 @@ This is designed to be an extended introductory F´ tutorial taking the user thr
 
 In order to run through this tutorial, you must first do the following:
 
-1. Meet the [F´ System Requirements](https://fprime.jpl.nasa.gov/latest/getting-started/installing-fprime#system-requirements)
+1. Meet the [F´ System Requirements](https://github.com/nasa/fprime?tab=readme-ov-file#system-requirements)
 2. Install an IDE or text editor supporting copy-paste. [VSCode](https://code.visualstudio.com/) has [plugins](https://marketplace.visualstudio.com/items?itemName=jet-propulsion-laboratory.fpp) to work with FPP.
-3. Attempt the [Hello World Tutorial](https://fprime.jpl.nasa.gov/latest/tutorials-hello-world/docs/hello-world/)
+3. Attempt the [Hello World Tutorial](https://fprime-community.github.io/fprime-tutorial-hello-world/)
 
 > [!IMPORTANT]
 > If you do not have the hardware, you can still follow the LED Blinker tutorial! You should just skip the Hardware sections.
@@ -23,7 +23,7 @@ In order to run through this tutorial, you must first do the following:
 To run on hardware with cross-compiling, you must also:
 
 1. Acquire and set up the appropriate hardware as described in the [Appendix: Optional Hardware Requirement](#appendix-optional-hardware-requirements) section
-2. Set up a [cross-compiling environment](https://fprime.jpl.nasa.gov/latest/documentation/tutorials/cross-compilation#cross-compilation-setup) for their ARM processor
+2. Set up a [cross-compiling environment](https://nasa.github.io/fprime/Tutorials/CrossCompilationSetup/CrossCompilationSetupTutorial.html) for their ARM processor
 
 > [!NOTE]
 > Attendees to an in-person F´ workshop will have access to 64-bit ARM hardware and should set up the 64-bit cross compiling environment.
@@ -48,15 +48,13 @@ This tutorial is composed of the following steps:
 ## 1. LED Blinker: Project Setup
 
 > [!NOTE]
-> If you have followed the [HelloWorld tutorial](https://fprime.jpl.nasa.gov/latest/tutorials-hello-world/docs/hello-world/) previously, this should feel very familiar...
+> If you have followed the [HelloWorld tutorial](https://fprime-community.github.io/fprime-tutorial-hello-world/) previously, this should feel very familiar...
 
 An F´ Project ties to a specific version of tools to work with F´. In order to create
-this project and install the correct version of tools, you should perform a bootstrap of F´.
+this project and install the correct version of tools, you should perform a bootstrap of F´:
 
-To do this you should follow the following steps from the [F´ installation guide](https://fprime.jpl.nasa.gov/latest/getting-started/installing-fprime):
-
-1. Ensure you meet the [F´ System Requirements](https://fprime.jpl.nasa.gov/latest/getting-started/installing-fprime#requirements)
-2. [Bootstrap your F´ project](https://fprime.jpl.nasa.gov/latest/getting-started/installing-fprime#creating-a-new-f-project) with the name `led-blinker`
+1. Ensure you meet the [F´ System Requirements](https://github.com/nasa/fprime?tab=readme-ov-file#system-requirements)
+2. [Bootstrap your F´ project](https://nasa.github.io/fprime/INSTALL.html#creating-a-new-f-project) with the name `led-blinker`
 
 Bootstrapping your F´ project created a folder called `led-blinker` (or any name you chose) containing the standard F´ project structure as well as the virtual environment up containing the tools to work with F´.
 
@@ -1073,12 +1071,12 @@ Congratulations you've now run on hardware. The final section of this tutorial i
 
 In this section, we will walk through the creation of system tests, also known as integration tests, for the LED component created in prior steps.
 
-F Prime system tests use a python api to dispatch commands to a deployment using the fprime GDS, verifying components behave as expected as part of deployment running on actual hardware.
+F Prime system tests use a Python API to dispatch commands to a deployment using the F´ GDS, verifying components behave as expected as part of deployment running on actual hardware.
 
-Before starting this guide, users should have the LedBlinking deployment running on their hardware and connected to the fprime GDS running on a development machine. If hardware is not available, this guide can be followed by running the LedBlinking deployment locally on a development machine instead.
+Before starting this guide, users should have the LedBlinking deployment running on their hardware and connected to the F´ GDS running on a development machine. If hardware is not available, this guide can be followed by running the LedBlinking deployment locally on a development machine instead.
 
 > [!NOTE]
-> If running the LedBlinker deployment locally instead of on the intended hardware, make sure to rebuild fprime with stubbed GPIO drivers so the LedBlinker deployment doesn't attempt to write to physical GPIO ports. Regenerate the native deployment with `fprime-util generate -DFPRIME_USE_STUBBED_DRIVERS=ON`. MacOS defaults to stubbed drivers and does not require explicitly setting this option.
+> If running the LedBlinker deployment locally instead of on the intended hardware, make sure to rebuild F´ with stubbed GPIO drivers so the LedBlinker deployment doesn't attempt to write to physical GPIO ports. Regenerate the native deployment with `fprime-util generate -DFPRIME_USE_STUBBED_DRIVERS=ON`. MacOS defaults to stubbed drivers and does not require explicitly setting this option.
 
 ### Intro to F Prime System Testing
 
@@ -1103,7 +1101,7 @@ def test_cmd_no_op(fprime_test_api):
 
 This test will send a `CMD_NO_OP` command and verify if successfully returns.
 
-Next, after verifying the fprime GDS is connected to your deployment, run the new system test and confirm it executes successfully.
+Next, after verifying the F´ GDS is connected to your deployment, run the new system test and confirm it executes successfully.
 
 ```shell
 # In led-blinker/LedBlinker
@@ -1113,7 +1111,7 @@ $ pytest ../Components/Led/test/int/led_integration_tests.py
 
 ### F Prime System Testing Assertions
 
-The typical pattern for fprime system tests is to send a command, then wait until some condition is met, such as receiving an event. If the system test don't receive the expected results, they will time out and fail.
+The typical pattern for F´ system tests is to send a command, then wait until some condition is met, such as receiving an event. If the system test don't receive the expected results, they will time out and fail.
 
 `fprime_test_api.send_and_assert_command` will send a command and wait for its completion, but there are several other variants we will use in this guide.
 
@@ -1189,7 +1187,7 @@ Run `pytest` again. **Notice that this new telemetry check should fail.**
 #TODO: use fprime_test_api.assert_telemetry to check that "LedBlinker.led.BlinkingState" is off
 ```
 
-Events in fprime are emitted immediately, but telemetry is only emitted periodically. In the LedBlinker deployment, telemetry channels are sent once per second.
+Events in F´ are emitted immediately, but telemetry is only emitted periodically. In the LedBlinker deployment, telemetry channels are sent once per second.
 
 The `fprime_test_api.assert_telemetry` check will immediately search for a matching `LedBlinker.led.BlinkingState` telemetry value.
 However, because one second hasn't passed between setting blinking off and checking for telemetry, there hasn't been sufficient time for the updated telemetry value to be sent.
