@@ -761,15 +761,22 @@ This exercise will walk through development of basic unit tests for the `Led` co
 
 To start off, use `fprime-util` to generate a unit test outline for the `Led` component.
 
-First, register unit tests for the `Led` component with the build system by adding these lines at the very end of the component `CMakeLists.txt` file in your `led-blinker/Components/Led` directory, **after** the `register_fprime_module()` call.
+First, register unit tests for the `Led` component with the build system by uncommenting the next lines at the very end of the component `CMakeLists.txt` file in your `led-blinker/Components/Led` directory.
 
 ```
 set(UT_SOURCE_FILES
-    "${CMAKE_CURRENT_LIST_DIR}/Led.fpp"
+  "${CMAKE_CURRENT_LIST_DIR}/Led.fpp"
 )
-set(UT_AUTO_HELPERS ON) # Additional Unit-Test autocoding
+set(UT_MOD_DEPS
+  STest
+)
+set(UT_AUTO_HELPERS ON)
 register_fprime_ut()
 ```
+> [!NOTE]
+> Keep the next lines commented:  
+> ```#  "${CMAKE_CURRENT_LIST_DIR}/test/ut/LedTestMain.cpp"```  
+> ```#  "${CMAKE_CURRENT_LIST_DIR}/test/ut/LedTester.cpp"```
 
 Next, generate a unit test build cache by running the following terminal commands:
 
@@ -789,24 +796,29 @@ To do so, run the implementation command in the terminal within your `led-blinke
 fprime-util impl --ut
 ```
 
-This step should create the files `LedTester.cpp`, `LedTester.hpp`, and `LedTestMain.cpp` in your current directory. Move them to a new subdirectory called `test/ut`.
+This step should create the files `LedTester.template.cpp`, `LedTester.template.hpp`, and `LedTestMain.template.cpp` in `led-blinker/Components/Led/test/ut`.
 
-This is done with:
-```shell
-#In led-blinker/Components/Led
-mkdir -p test/ut
-mv LedTest* test/ut/
+Since this is the start of the test's implementation, we use the generated template files for our initial test implementation. Inside your `led-blinker/Components/Led/test/ut` directory, rename the files removing the `.template` suffix:
+
+```bash
+# In led-blinker/Components/Led/test/ut
+mv LedTester.template.hpp LedTester.hpp
+mv LedTester.template.cpp LedTester.cpp
+mv LedTestMain.template.cpp LedTestMain.cpp
 ```
 
 Next, update the `CMakeLists.txt` file in your `led-blinker/Components/Led` directory to add those files to the list of unit-test source files. That section should look like this:
 
 ```cmake
 set(UT_SOURCE_FILES
-    "${CMAKE_CURRENT_LIST_DIR}/Led.fpp"
-    "${CMAKE_CURRENT_LIST_DIR}/test/ut/LedTestMain.cpp"
-    "${CMAKE_CURRENT_LIST_DIR}/test/ut/LedTester.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/Led.fpp"
+  "${CMAKE_CURRENT_LIST_DIR}/test/ut/LedTestMain.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/test/ut/LedTester.cpp"
 )
-set(UT_AUTO_HELPERS ON) # Additional Unit-Test autocoding
+set(UT_MOD_DEPS
+  STest
+)
+set(UT_AUTO_HELPERS ON)
 register_fprime_ut()
 ```
 
