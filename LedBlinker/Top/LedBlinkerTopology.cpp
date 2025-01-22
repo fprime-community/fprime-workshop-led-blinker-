@@ -149,6 +149,9 @@ void setupTopology(const TopologyState& state) {
     connectComponents();
     // Autocoded configuration. Function provided by autocoder.
     configComponents(state);
+    if (state.hostname != nullptr && state.port != 0) {
+        comDriver.configure(state.hostname, state.port);
+    }
     // Deployment-specific component configuration. Function provided above. May be inlined, if desired.
     configureTopology();
     // Autocoded command registration. Function provided by autocoder.
@@ -161,8 +164,7 @@ void setupTopology(const TopologyState& state) {
     if (state.hostname != nullptr && state.port != 0) {
         Os::TaskString name("ReceiveTask");
         // Uplink is configured for receive so a socket task is started
-        comDriver.configure(state.hostname, state.port);
-        comDriver.start(name, true, COMM_PRIORITY, Default::STACK_SIZE);
+        comDriver.start(name, COMM_PRIORITY, Default::STACK_SIZE);
     }
 }
 
