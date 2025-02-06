@@ -15,7 +15,7 @@ In order to run through this tutorial, you must first do the following:
 
 1. Meet the [F´ System Requirements](https://github.com/nasa/fprime#system-requirements)
 2. Install an IDE or text editor supporting copy-paste. [VSCode](https://code.visualstudio.com/) has [plugins](https://marketplace.visualstudio.com/items?itemName=unlv-team5.fpptools) to work with FPP.
-3. Attempt the [Hello World Tutorial](https://fprime.jpl.nasa.gov/latest/tutorials-hello-world/docs/hello-world/)
+3. Attempt the [Hello World Tutorial](https://fprime.jpl.nasa.gov/latest/docs/tutorials/)
 
 To run on hardware with cross-compiling, you must also:
 1. Acquire and set up the appropriate [hardware](docs/led-blinker.md#appendix-optional-hardware-requirements) for this tutorial
