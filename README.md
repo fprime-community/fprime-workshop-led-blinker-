@@ -13,13 +13,15 @@ ARM processor (e.g. RaspberryPI, Odroid, etc).
 
 In order to run through this tutorial, you must first do the following:
 
-1. Meet the [F´ System Requirements](https://nasa.github.io/fprime/INSTALL.html#requirements)
+1. Meet the [F´ System Requirements](https://github.com/nasa/fprime#system-requirements)
 2. Install an IDE or text editor supporting copy-paste. [VSCode](https://code.visualstudio.com/) has [plugins](https://marketplace.visualstudio.com/items?itemName=unlv-team5.fpptools) to work with FPP.
-3. Attempt the [Hello World Tutorial](https://fprime-community.github.io/fprime-tutorial-hello-world/)
+3. Attempt the [Hello World Tutorial](https://fprime.jpl.nasa.gov/latest/docs/tutorials/)
 
 To run on hardware with cross-compiling, you must also:
-1. Acquire and set up the appropriate [hardware](docs/hardware.md) for this tutorial
-2. Set up a [cross-compiling environment](https://github.com/nasa/fprime/blob/devel/docs/Tutorials/CrossCompilationSetup/CrossCompilationSetupTutorial.md) for their ARM processor
+1. Acquire and set up the appropriate [hardware](docs/led-blinker.md#appendix-optional-hardware-requirements) for this tutorial
+2. Set up a [cross-compiling environment](https://github.com/nasa/fprime/blob/devel/docs/tutorials/cross-compilation.md) for their ARM processor
+
+> [!NOTE]
 > Attendees to an in-person F´ workshop will have access to 64-bit ARM hardware and should set up the 64-bit cross compiling environment.
 
 ## Contributing

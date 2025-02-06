@@ -15,7 +15,7 @@ In order to run through this tutorial, you must first do the following:
 
 1. Meet the [F´ System Requirements](https://github.com/nasa/fprime?tab=readme-ov-file#system-requirements)
 2. Install an IDE or text editor supporting copy-paste. [VSCode](https://code.visualstudio.com/) has [plugins](https://marketplace.visualstudio.com/items?itemName=jet-propulsion-laboratory.fpp) to work with FPP.
-3. Attempt the [Hello World Tutorial](https://fprime-community.github.io/fprime-tutorial-hello-world/)
+3. Attempt the [Hello World Tutorial](https://fprime.jpl.nasa.gov/latest/docs/tutorials/)
 
 > [!IMPORTANT]
 > If you do not have the hardware, you can still follow the LED Blinker tutorial! You should just skip the Hardware sections.
@@ -48,7 +48,7 @@ This tutorial is composed of the following steps:
 ## 1. LED Blinker: Project Setup
 
 > [!NOTE]
-> If you have followed the [HelloWorld tutorial](https://fprime-community.github.io/fprime-tutorial-hello-world/) previously, this should feel very familiar...
+> If you have followed the [HelloWorld tutorial](https://fprime.jpl.nasa.gov/latest/docs/tutorials/) previously, this should feel very familiar...
 
 An F´ Project ties to a specific version of tools to work with F´. In order to create
 this project and install the correct version of tools, you should perform a bootstrap of F´:
