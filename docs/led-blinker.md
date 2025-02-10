@@ -1049,7 +1049,7 @@ In order to run on hardware, the deployment needs to be built for the given hard
 
 ### Cross-Compiling for Embedded Arm Linux
 
-In the prerequisites for this tutorial, the ARM Linux cross-compilers were installed. In this section, we will use these compilers to cross-compile for ARM Linux by utilizing integration files called "CMake Toolchain". Follow the steps in the [ARM cross compilation tutorial](https://fprime.jpl.nasa.gov/latest/documentation/tutorials/cross-compilation#cross-compilation-tutorial-compiling-for-arm) on how to compile for ARM.
+In the prerequisites for this tutorial, the ARM Linux cross-compilers were installed. In this section, we will use these compilers to cross-compile for ARM Linux by utilizing integration files called "CMake Toolchain". Follow the steps in the [ARM cross compilation tutorial](https://fprime.jpl.nasa.gov/latest/docs/tutorials/cross-compilation#cross-compilation-tutorial-compiling-for-arm) on how to compile for ARM.
 
 > [!NOTE]
 > During the step for running the `fprime-util generate` and `fprime-util build` commands, macOS users must run from within the Docker container in the directory `/project/LedBlinker`
@@ -1058,7 +1058,7 @@ In the prerequisites for this tutorial, the ARM Linux cross-compilers were insta
 
 Now it is time to run on hardware. For this tutorial, the assumption is that the Arm Linux machine is available on the network, is running SSH, and the username, password, device address, and host address are known to the student. Without this configuration, users should skip to the next section of the tutorial. 
 
-Follow the [F´ Running on ARM Linux Tutorial](https://fprime.jpl.nasa.gov/latest/documentation/tutorials/cross-compilation#f-running-on-arm-linux-tutorial) for step-by-step instructions on how to upload the software to the hardware platform, launching F´ GDS, and for running the uploaded software.
+Follow the [F´ Running on ARM Linux Tutorial](https://fprime.jpl.nasa.gov/latest/docs/tutorials/cross-compilation#f-running-on-arm-linux-tutorial) for step-by-step instructions on how to upload the software to the hardware platform, launching F´ GDS, and for running the uploaded software.
 
 ### LED Blinker Step 8 Conclusion
 
