@@ -23,7 +23,7 @@ In order to run through this tutorial, you must first do the following:
 To run on hardware with cross-compiling, you must also:
 
 1. Acquire and set up the appropriate hardware as described in the [Appendix: Optional Hardware Requirement](#appendix-optional-hardware-requirements) section
-2. Set up a [cross-compiling environment](https://fprime.jpl.nasa.gov/devel/docs/tutorials/cross-compilation/) for their ARM processor
+2. Set up a [cross-compiling environment](https://fprime.jpl.nasa.gov/latest/docs/tutorials/cross-compilation/) for their ARM processor
 
 > [!NOTE]
 > Attendees to an in-person F´ workshop will have access to 64-bit ARM hardware and should set up the 64-bit cross compiling environment.
