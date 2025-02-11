@@ -23,7 +23,7 @@ In order to run through this tutorial, you must first do the following:
 To run on hardware with cross-compiling, you must also:
 
 1. Acquire and set up the appropriate hardware as described in the [Appendix: Optional Hardware Requirement](#appendix-optional-hardware-requirements) section
-2. Set up a [cross-compiling environment](https://nasa.github.io/fprime/Tutorials/CrossCompilationSetup/CrossCompilationSetupTutorial.html) for their ARM processor
+2. Set up a [cross-compiling environment](https://fprime.jpl.nasa.gov/latest/docs/tutorials/cross-compilation/) for their ARM processor
 
 > [!NOTE]
 > Attendees to an in-person F´ workshop will have access to 64-bit ARM hardware and should set up the 64-bit cross compiling environment.
@@ -54,7 +54,7 @@ An F´ Project ties to a specific version of tools to work with F´. In order to
 this project and install the correct version of tools, you should perform a bootstrap of F´:
 
 1. Ensure you meet the [F´ System Requirements](https://github.com/nasa/fprime?tab=readme-ov-file#system-requirements)
-2. [Bootstrap your F´ project](https://nasa.github.io/fprime/INSTALL.html#creating-a-new-f-project) with the name `led-blinker`
+2. [Bootstrap your F´ project](https://fprime.jpl.nasa.gov/latest/docs/getting-started/installing-fprime/#creating-a-new-f-project) with the name `led-blinker`
 
 Bootstrapping your F´ project created a folder called `led-blinker` (or any name you chose) containing the standard F´ project structure as well as the virtual environment up containing the tools to work with F´.
 
