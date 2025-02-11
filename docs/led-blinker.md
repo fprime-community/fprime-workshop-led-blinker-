@@ -761,24 +761,7 @@ This exercise will walk through development of basic unit tests for the `Led` co
 
 To start off, use `fprime-util` to generate a unit test outline for the `Led` component.
 
-First, register unit tests for the `Led` component with the build system by uncommenting the next lines at the very end of the component `CMakeLists.txt` file in your `led-blinker/Components/Led` directory.
-
-```
-set(UT_SOURCE_FILES
-  "${CMAKE_CURRENT_LIST_DIR}/Led.fpp"
-)
-set(UT_MOD_DEPS
-  STest
-)
-set(UT_AUTO_HELPERS ON)
-register_fprime_ut()
-```
-> [!NOTE]
-> Keep the next lines commented:  
-> ```#  "${CMAKE_CURRENT_LIST_DIR}/test/ut/LedTestMain.cpp"```  
-> ```#  "${CMAKE_CURRENT_LIST_DIR}/test/ut/LedTester.cpp"```
-
-Next, generate a unit test build cache by running the following terminal commands:
+First, generate a unit test build cache by running the following terminal commands:
 
 ```shell
 #In led-blinker/Components/Led
@@ -786,7 +769,6 @@ fprime-util generate --ut
 ```
 > [!NOTE]
 > Unit tests run with special build settings and as such need their own build cache generated.
-
 
 Next we will generate unit test template files. This is similar to the component implementations we have run, but will set up the complete unit test harness. 
 
@@ -807,7 +789,7 @@ mv LedTester.template.cpp LedTester.cpp
 mv LedTestMain.template.cpp LedTestMain.cpp
 ```
 
-Next, update the `CMakeLists.txt` file in your `led-blinker/Components/Led` directory to add those files to the list of unit-test source files. That section should look like this:
+Then, register the unit test files with the build system by uncommenting these lines at the very end of the component `CMakeLists.txt` file in your `led-blinker/Components/Led` directory:
 
 ```cmake
 set(UT_SOURCE_FILES
