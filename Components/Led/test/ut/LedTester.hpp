@@ -19,13 +19,13 @@ class LedTester : public LedGTestBase {
     // ----------------------------------------------------------------------
 
     // Maximum size of histories storing events, telemetry, and port outputs
-    static const NATIVE_INT_TYPE MAX_HISTORY_SIZE = 10;
+    static const U32 MAX_HISTORY_SIZE = 10;
 
     // Instance ID supplied to the component instance under test
-    static const NATIVE_INT_TYPE TEST_INSTANCE_ID = 0;
+    static const FwEnumStoreType TEST_INSTANCE_ID = 0;
 
     // Queue depth supplied to the component instance under test
-    static const NATIVE_INT_TYPE TEST_INSTANCE_QUEUE_DEPTH = 10;
+    static const FwSizeType TEST_INSTANCE_QUEUE_DEPTH = 10;
 
   public:
     // ----------------------------------------------------------------------
@@ -53,7 +53,7 @@ class LedTester : public LedGTestBase {
 
     //! Handler for from_gpioSet
     //!
-    Drv::GpioStatus from_gpioSet_handler(const NATIVE_INT_TYPE portNum, /*!< The port number*/
+    Drv::GpioStatus from_gpioSet_handler(const FwIndexType portNum, /*!< The port number*/
                                          const Fw::Logic& state);
 
   private:
